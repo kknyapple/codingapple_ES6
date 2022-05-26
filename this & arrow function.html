@@ -1,0 +1,34 @@
+<div></div>
+
+<button id="btn">버튼이에요</button>
+
+<script>
+  //this & arrow function 연습문제
+
+  //1
+  var person = {
+    name: "손흥민",
+    sayHi: () => console.log("안녕 나는 손흥민"),
+  };
+
+  person.sayHi(); //안녕 나는 손흥민
+
+  //2
+  var numData = {
+    data: [1, 2, 3, 4, 5],
+    addAll: () => {
+      let sum = 0;
+      numData.data.forEach(function (i) {
+        sum += i;
+      });
+      console.log(sum);
+    },
+  };
+
+  numData.addAll(); //15
+
+  //3
+  document.getElementById("btn").addEventListener("click", function () {
+    setTimeout(() => console.log(this.innerHTML), 1000); //1초후 버튼이에요 출력
+  });
+</script>
