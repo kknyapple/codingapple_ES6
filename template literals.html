@@ -1,0 +1,24 @@
+<div></div>
+
+<script>
+  //1. 단어 순서를 바꾸는 해체분석기
+  var pants = 20;
+  var socks = 100;
+
+  function slice(str, para1, para2) {
+    console.log(`${str[1]} ${para1} ${str[0]} ${para2}`);
+  }
+
+  slice`바지${pants} 양말${socks}`;
+
+  //2. 바지가 0개면 '바지 다 팔렸어요' 문자 출력
+  var pants = 0;
+  var socks = 10;
+
+  function slice(str, ...para) {
+    para[0] === 0
+      ? console.log(`바지 다 팔렸어요${str[1]} ${para[1]}`)
+      : console.log(`${str[0]} ${para[0]} ${str[1]} ${para[1]}`);
+  }
+  slice`바지${pants} 양말${socks}`;
+</script>
