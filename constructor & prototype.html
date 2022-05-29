@@ -1,0 +1,89 @@
+<div></div>
+
+<script>
+  //constructor
+  function Product(productName, productPrice) {
+    this.name = productName;
+    this.price = productPrice;
+    this.vat = () => {
+      console.log(this.price * 0.1); //this.productPrice(X)
+    };
+  }
+
+  const product1 = new Product("shirts", 50000);
+  const product2 = new Product("pants", 60000);
+
+  console.log(product1);
+  console.log(product2);
+  product1.vat();
+  product2.vat();
+
+  //prototype
+  function 기계() {
+    this.name = "Kim";
+    this.age = 15;
+  }
+
+  기계.prototype.gender = "남";
+  var 학생1 = new 기계();
+  var 학생2 = new 기계();
+
+  console.log(학생1.gender);
+
+  console.log(학생1.__proto__);
+  console.log(기계.prototype);
+
+  console.log(Array.prototype);
+  console.log(Object.prototype);
+
+  //0
+  function Student(sName, sAge) {
+    this.name = sName;
+    this.age = sAge;
+    this.sayHi = () => {
+      console.log(`안녕 나는 ${this.name}이야`);
+    };
+  }
+
+  const student1 = new Student("Kim", 20);
+  const student2 = new Student("Park", 21);
+  const student3 = new Student("Lee", 22);
+
+  console.log(student1);
+  console.log(student2);
+  console.log(student3);
+  student1.sayHi();
+
+  //1
+  function Parent() {
+    this.name = "Kim";
+  }
+  var a = new Parent();
+
+  a.__proto__.name = "Park";
+  console.log(a.name); //Kim
+
+  //2
+  function Student(이름, 나이) {
+    this.name = 이름;
+    this.age = 나이;
+  }
+
+  Student.prototype.sayHi = () => {
+    console.log("안녕 나는 " + this.name + "이야");
+  };
+  var 학생1 = new Student("Kim", 20);
+
+  학생1.sayHi(); //안녕 나는 이야 //arrow function 사용으로 this 값이 window
+  //3
+  Array.prototype.remove3 = function () {
+    this.forEach((i) => {
+      this[i] === 3 ? this.splice(i, 1) : null;
+    });
+  };
+
+  var arr = [1, 2, 3];
+  arr.remove3();
+
+  console.log(arr); //[1,2]
+</script>

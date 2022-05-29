@@ -1,0 +1,15 @@
+<div></div>
+
+<script>
+  var 이름1 = { name: "김" };
+
+  function 변경(obj) {
+    //obj라는 변수에 새로운 화살표를 재할당
+    //실제 이름1이라는 변수는 전혀 건드리지 않음
+    //obj = { name: "park" };
+    obj.name = "park";
+  }
+
+  변경(이름1);
+  console.log(이름1);
+</script>
