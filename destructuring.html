@@ -1,0 +1,26 @@
+<script>
+  //1
+  var [number, address] = [30, "seoul"];
+  var { address: a, number = 20 } = { address, number };
+
+  console.log(a); //seoul
+  console.log(address); //seoul
+  console.log(number); //30
+
+  //2
+  let 신체정보 = {
+    body: {
+      height: 190,
+      weight: 70,
+    },
+    size: ["상의 Large", "바지 30인치"],
+  };
+
+  const {
+    body: { height, weight },
+    size: [상의, 하의],
+  } = 신체정보; //height, weight, 하의, 상의 변수 생성
+
+  console.log(height); //190
+  console.log(상의); //상의 Large
+</script>
