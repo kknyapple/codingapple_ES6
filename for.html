@@ -1,0 +1,67 @@
+<script>
+  //   //for in(1)
+  //   var 오브젝트 = { name: "Kim", age: 30 };
+
+  //   for (var key in 오브젝트) {
+  //     console.log(오브젝트[key]);
+  //   }
+
+  //   //for in(2)
+  //   class 부모 {}
+  //   부모.prototype.name = "Park";
+
+  //   var 오브젝트 = new 부모();
+
+  //   for (var key in 오브젝트) {
+  //     if (오브젝트.hasOwnProperty(key)) {
+  //       //부모가 가진 자료는 출력 X
+  //       console.log(오브젝트[key]);
+  //     }
+  //   }
+
+  //   //for of(1)
+  //   var 어레이 = [2, 3, 4, 5];
+  //   for (var 자료 of 어레이) {
+  //     console.log(자료);
+  //   }
+
+  //   //for of(2)
+  //   var 어레이 = [2, 3, 4, 5];
+  //   console.log(어레이[Symbol.iterator]());
+
+  //   //1
+  //   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //   for (const num of data) {
+  //     result = 2 * num;
+  //     console.log(`2x${num}=${result}`);
+  //   }
+
+  //2
+  const products = [
+    {
+      name1: "chair",
+      price1: 7000,
+    },
+    {
+      name2: "sofa",
+      price: 5000,
+    },
+    {
+      name1: "desk",
+      price3: 9000,
+    },
+  ];
+
+  for (const object of products) {
+    for (const key in object) {
+      if (isNaN(parseInt(key.slice(-1))) === false) {
+        newValue = object[key];
+        newKey = key.slice(0, -1);
+        object[newKey] = newValue;
+        delete object[key];
+      }
+    }
+  }
+
+  console.log(products);
+</script>
