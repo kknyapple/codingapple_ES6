@@ -1,0 +1,47 @@
+<div><img id="test" src="" /></div>
+
+<script>
+  var 프로미스 = new Promise(function (성공, 실패) {
+    var plus = 1 + 1;
+    성공(plus);
+  });
+  프로미스
+    .then(function (결과) {
+      console.log("연산이 성공했습니다" + 결과);
+    })
+    .catch(function () {
+      console.log("실패했습니다");
+    });
+
+  var 프로미스2 = new Promise(function (성공, 실패) {
+    setTimeout(function () {
+      성공();
+    }, 1000);
+  });
+  프로미스2
+    .then(function () {
+      console.log("1초 대기 성공");
+    })
+    .catch(function () {
+      console.log("실패");
+    });
+
+  //1
+  var loading = new Promise(function (resolve, reject) {
+    var img = document.querySelector("#test");
+    img.addEventListener("load", function () {
+      resolve();
+    });
+    img.addEventListener("error", function () {
+      reject();
+    });
+  });
+
+  loading
+    .then(function () {
+      console.log("load complete");
+    })
+    .catch(function () {
+      console.log("fail");
+    });
+</script>
